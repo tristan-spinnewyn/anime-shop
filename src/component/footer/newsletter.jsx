@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import { newsletterRegister } from '../../api/newsletterApi'
-import AlertShow from '../alert'
 import {toast} from 'react-toastify'; 
   
 import 'react-toastify/dist/ReactToastify.css'; 

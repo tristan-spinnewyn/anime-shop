@@ -39,9 +39,9 @@ export default function Header(props) {
                     <ul className="navbar-nav">
                         {menu.map((item,index)=>{
                             if(item.url== "#" ){
-                                return <MenuLiDropdown nom={item.nom} sousMenu={item.sousMenu} />
+                                return <MenuLiDropdown key={index} nom={item.nom} sousMenu={item.sousMenu} />
                             }else{
-                                return <MenuLi nom={item.nom} url={item.url} />
+                                return <MenuLi key={index} nom={item.nom} url={item.url} />
                             }
                         })}
                     </ul>

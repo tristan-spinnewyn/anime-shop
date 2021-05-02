@@ -1,6 +1,6 @@
 import axios from 'axios'
+import {BASE_URL} from './config'
 
-const BASE_URL = 'http://localhost:1337'
 
 export async function newsletterRegister(email){
     const url = `${BASE_URL}/newsletters`

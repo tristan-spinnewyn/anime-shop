@@ -8,15 +8,18 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Contact from './pages/contact';
 
 function App() {
   return (
     <>
       <Router>
         <Header />
-        <Switch>
-          <Route path="/contact"/>
-        </Switch>
+        <div className="container-fluid min-vh-75">
+          <Switch>
+            <Route path="/contact" component={Contact}/>
+          </Switch>
+        </div>
         <Footer/>
       </Router>
     </>
