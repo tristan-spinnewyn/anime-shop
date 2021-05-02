@@ -14,7 +14,9 @@ function App() {
     <>
       <Router>
         <Header />
-
+        <Switch>
+          <Route path="/contact"/>
+        </Switch>
         <Footer/>
       </Router>
     </>
