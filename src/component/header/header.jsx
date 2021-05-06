@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import FontAwesome from 'react-fontawesome'
+import { Link } from 'react-router-dom'
+import { CardContext } from '../../App'
 import Logo from '../../images/logo.jpeg'
 import MenuLi from './menuLi'
 import MenuLiDropdown from './menuLiDropdown'
@@ -9,25 +11,28 @@ export default function Header(props) {
         {nom: "Accueil", url:"/"},
         {nom : "Manga", url:"#", sousMenu:[
             {nom:"Tous voir",url:"/manga"},
-            {nom:"Shojo",url:"/shojo"},
-            {nom:"Shonen",url:"/shonen"},
-            {nom:"Seinen",url:"/seinen"}
+            {nom:"Shojo",url:"/manga/shojo"},
+            {nom:"Shonen",url:"/manga/shonen"},
+            {nom:"Seinen",url:"/manga/seinen"}
         ]},
         {nom : "Film", url : "#",sousMenu:[
             {nom:"Tous voir",url:"/film"},
-            {nom:"Shojo",url:"/shojo"},
-            {nom:"Shonen",url:"/shonen"},
-            {nom:"Seinen",url:"/seinen"}
+            {nom:"Shojo",url:"/film/shojo"},
+            {nom:"Shonen",url:"/film/shonen"},
+            {nom:"Seinen",url:"/film/seinen"}
         ] },
 		{nom : "Série TV", url : "#",sousMenu:[
             {nom:"Tous voir",url:"/serie"},
-            {nom:"Shojo",url:"/shojo"},
-            {nom:"Shonen",url:"/shonen"},
-            {nom:"Seinen",url:"/seinen"}
+            {nom:"Shojo",url:"/serie/shojo"},
+            {nom:"Shonen",url:"/serie/shonen"},
+            {nom:"Seinen",url:"/serie/seinen"}
         ]},
 		{nom: "A propos", url:"/about"},
 		{nom: "Contact",url:"/contact"}
     ]
+
+    const context = useContext(CardContext)
+    console.log(context.nbArticle)
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -49,7 +54,7 @@ export default function Header(props) {
                 <div>
                     <ul className="navbar-nav space-between">
                         <li className="m-2"><FontAwesome name="user" size="2x"/></li>
-                        <li className="m-2"><FontAwesome name="shopping-cart" size="2x"/></li>
+                        <li className="m-2"><Link to="/panier" className="text-decoration-none text-dark"><FontAwesome name="shopping-cart" size="2x"/>({context.nbArticle})</Link></li>
                     </ul>
                 </div>
             </div>
