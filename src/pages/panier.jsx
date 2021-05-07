@@ -32,6 +32,11 @@ export default function Panier(props) {
     }, [change,livraison])
 
     const changeQte = (quantite,index)=> {
+        if(quantite == 0){
+            if(!window.confirm("Etes vous sur de vouloir supprimer ce produit ?")){
+                return
+            }
+        }
         updateQte(index,quantite)
         setchange(change + 1)
         context.setNbArticle(nbArticles())
